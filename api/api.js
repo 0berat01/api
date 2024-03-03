@@ -158,7 +158,6 @@ router.patch("/blog/articles/:id", async (req, res) => {
   document = document.data()
   const docContent = document["content-info"];
   const docBody = document["body"]
-,,
   const { title, description, author, keywords } = req.body["content-info"];
   const articleContent = req.body.body?.["article-content"]
   const contentInfo = {

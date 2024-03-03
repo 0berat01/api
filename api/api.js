@@ -95,18 +95,18 @@ router.post("/blog/articles", upload.single("thumbnail"), async (req, res) => {
   }
 
   const uuid = crypto.randomUUID();
-  const contentInfo = req.body["content-info"];
+  const { title,description,keywords,author } = req.body["content-info"];
   const body = req.body.body;
   const slug = slugify(contentInfo.title);
   const data = {
     "content-info": {
-      title: contentInfo.title,
-      description: contentInfo.description,
-      keywords: contentInfo.keywords,
-      slug: slug,
-      uuid: uuid,
+      title,
+      description,
+      keywords,
+      slug,
+      uuid,
       createdAt: new Date(),
-      author: contentInfo.author,
+      author
     },
     body: {
       "article-content": body["article-content"],
